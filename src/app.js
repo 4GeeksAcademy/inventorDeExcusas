@@ -25,5 +25,8 @@ function generateExcuse() {
 }
 
 window.onload = function () {
-  document.getElementById('excuse').innerHTML = generateExcuse();
+  let excuse = generateExcuse();
+  document.getElementById('excuse').innerHTML = excuse;
+  console.log(excuse);
+  
 };
