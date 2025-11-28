@@ -2,31 +2,26 @@ import "bootstrap";
 import "./style.css";
 
 
-import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function () {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+let who = ["The dog", "My grandma", "The mailman", "My bird"];
+let action = ["ate", "peed", "crushed", "broke"];
+let what = ["my homework", "my phone", "the car"];
+let when = ["before the class", "when i was sleeping", "while i was exercising", "during my lunch", "while i was praying"];
 
-let who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
-let action = ['ate', 'peed', 'crushed', 'broke'];
-let what = ['my homework', 'my phone', 'the car'];
-let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
-
-
-function generateExcuse() {
+const generateExcuse = () => {
   let randomWho = who[Math.floor(Math.random() * who.length)];
-  let randomAction = action[Math.floor(Math.random() * action.length)];
+  let randoAction = action[Math.floor(Math.random() * action.length)];
   let randomWhat = what[Math.floor(Math.random() * what.length)];
   let randomWhen = when[Math.floor(Math.random() * when.length)];
-  return randomWho + ', ' + randomAction + ' ' + randomWhat + ', ' + randomWhen;
+
+  return `${randomWho} ${randoAction} ${randomWhat} ${randomWhen}`;
 }
 
-window.onload = function () {
-  let excuse = generateExcuse();
-  document.getElementById('excuse').innerHTML = excuse;
-  console.log(excuse);
-  
-};
+window.onload = function() {
+  document.getElementById("excuse").innerHTML = generateExcuse();
+}
+
+document.getElementById("reloadBtn").addEventListener("click", function() {
+  document.getElementById("excuse").innerHTML = generateExcuse();
+})
